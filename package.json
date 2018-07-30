@@ -1,0 +1,78 @@
+{
+  "name": "mas-backend-microservice",
+  "version": "1.0.0",
+  "description": "RealWorld example app with Moleculer microservices framework",
+  "scripts": {
+    "dev": "moleculer-runner --repl --hot services",
+    "start": "moleculer-runner",
+    "deps": "npm-check -u",
+    "ci": "jest --watch",
+    "drop": "sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all",
+    "test": "jest --verbose",
+    "coverage": "jest --coverage",
+    "lint": "standard",
+    "docker:build": "docker build -t conduit ."
+  },
+  "jest": {
+    "globalSetup": "./test/global/setup.js",
+    "globalTeardown": "./test/global/teardown.js",
+    "testEnvironment": "node",
+    "rootDir": "./",
+    "notify": true,
+    "roots": [
+      "./test"
+    ]
+  },
+  "standard": {
+    "plugins": [],
+    "globals": [
+      "describe",
+      "beforeAll",
+      "afterAll",
+      "it",
+      "expect"
+    ],
+    "ignore": [
+      "node_modules/**",
+      "static"
+    ]
+  },
+  "keywords": [
+    "microservices",
+    "moleculer",
+    "realworld"
+  ],
+  "author": "",
+  "devDependencies": {
+    "jest": "^23.3.0",
+    "jest-cli": "^23.3.0",
+    "moleculer-repl": "^0.5.0",
+    "npm-check": "^5.7.1",
+    "standard": "^11.0.1",
+    "supertest": "^3.1.0"
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.0",
+    "dotenv": "^6.0.0",
+    "jsonwebtoken": "^8.3.0",
+    "lodash": "^4.17.10",
+    "moleculer": "^0.13.0",
+    "moleculer-db": "^0.7.3",
+    "moleculer-web": "^0.8.0",
+    "moment": "^2.22.2",
+    "nats": "^1.0.0",
+    "pg": "^7.4.3",
+    "pg-hstore": "^2.3.2",
+    "pg-native": "^3.0.0",
+    "pluralize": "^7.0.0",
+    "sequelize": "^4.38.0",
+    "slug": "0.9.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitbucket.org/measureaid/mas-backend-microservice.git"
+  },
+  "engines": {
+    "node": ">= 8.x.x"
+  }
+}
